@@ -26,12 +26,14 @@ public:
     void Prepend(T element);
     void Replace(T element, int index);
     void Insert(T element, int index);
+    void Remove(int index);
     void Swap(int index_1, int index_2);
     void Resize();
 
-    int IsContained(T element);
+    int IsContained(T element) const ;
     void Concat(ArraySequence<T> &copy);
     ArraySequence<T> GetSub(int a, int b);
+    ArraySequence<T>& operator=(const ArraySequence<T>&);
 };
 
 // Подключение файла с реализацией

@@ -66,6 +66,10 @@ template<class T>
 void ArraySequence<T>::Insert(T element, int index) {
     dynamic_array.Insert(element, index);
 }
+template<class T>
+void ArraySequence<T>::Remove( int index) {
+    dynamic_array.Erase(index);
+}
 
 template<class T>
 void ArraySequence<T>::Swap(int index_1, int index_2) {
@@ -78,7 +82,7 @@ void ArraySequence<T>::Resize() {
 }
 
 template<class T>
-int ArraySequence<T>::IsContained(T element) {
+int ArraySequence<T>::IsContained(T element) const {
     for (int i = 0; i < dynamic_array.GetSize(); i++) {
         if (dynamic_array.GetElement(i) == element) {
             return 1;
@@ -90,6 +94,12 @@ int ArraySequence<T>::IsContained(T element) {
 template<class T>
 void ArraySequence<T>::Concat(ArraySequence<T>& copy) {
     dynamic_array.Concat(copy.dynamic_array);
+}
+
+template<class T>
+ArraySequence<T>& ArraySequence<T>::operator=(const ArraySequence<T>& copy){
+    dynamic_array = copy.dynamic_array;
+    return *this;
 }
 
 template<class T>

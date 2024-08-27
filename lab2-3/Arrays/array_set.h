@@ -5,13 +5,11 @@
 #include "../list_sequence/list_sequence.h"
 
 #include <stdexcept>
-#include <vector>
-
 
 template<class T>
 class ArraySet {
 private:
-    std::vector<T> set;
+    ArraySequence<T> set;
 
 public:
     void Add(T element);
